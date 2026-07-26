@@ -66,5 +66,138 @@
 #
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
+
+# -----------------------------------------------------------------------------
+# OPERATION 1 — Addition
+# -----------------------------------------------------------------------------
+
+def add(first_number, second_number):
+    return first_number + second_number
+
+
+# -----------------------------------------------------------------------------
+# OPERATION 2 — Subtraction
+# -----------------------------------------------------------------------------
+
+def subtract(first_number, second_number):
+    return first_number - second_number
+
+
+# -----------------------------------------------------------------------------
+# OPERATION 3 — Multiplication
+# -----------------------------------------------------------------------------
+
+def multiply(first_number, second_number):
+    return first_number * second_number
+
+
+# -----------------------------------------------------------------------------
+# OPERATION 4 — Division
+# -----------------------------------------------------------------------------
+
+def divide(first_number, second_number):
+    if second_number == 0:
+        return None
+
+    return round(first_number / second_number, 2)
+
+
+# -----------------------------------------------------------------------------
+# OPERATION 5 — Modulus
+# -----------------------------------------------------------------------------
+
+def modulus(first_number, second_number):
+    if second_number == 0:
+        return None
+
+    return first_number % second_number
+
+
+# -----------------------------------------------------------------------------
+# OPERATION 6 — Exponentiation
+# -----------------------------------------------------------------------------
+
+def exponentiate(first_number, second_number):
+    return first_number ** second_number
+
+
+# -----------------------------------------------------------------------------
+# DISPLAY THE MENU
+# -----------------------------------------------------------------------------
+
+def display_menu():
+    print("\n============================")
+    print("      SIMPLE CALCULATOR")
+    print("============================")
+    print("1. Addition")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. Division")
+    print("5. Modulus")
+    print("6. Exponentiation")
+    print("7. Quit")
+
+
+# =============================================================================
+# MAIN PROGRAM
+# =============================================================================
+
+if __name__ == "__main__":
+
+    while True:
+
+        display_menu()
+
+        choice = input("Select an operation (1-7): ")
+
+        if choice == "7":
+            print("Goodbye!")
+            break
+
+        elif choice in ["1", "2", "3", "4", "5", "6"]:
+
+            try:
+                first_number = float(input("Enter first number : "))
+                second_number = float(input("Enter second number: "))
+
+                if choice == "1":
+                    result = add(first_number, second_number)
+                    symbol = "+"
+
+                elif choice == "2":
+                    result = subtract(first_number, second_number)
+                    symbol = "-"
+
+                elif choice == "3":
+                    result = multiply(first_number, second_number)
+                    symbol = "*"
+
+                elif choice == "4":
+                    result = divide(first_number, second_number)
+                    symbol = "/"
+
+                    if result is None:
+                        print("Error: Cannot divide by zero.")
+                        continue
+
+                elif choice == "5":
+                    result = modulus(first_number, second_number)
+                    symbol = "%"
+
+                    if result is None:
+                        print("Error: Cannot divide by zero.")
+                        continue
+
+                elif choice == "6":
+                    result = exponentiate(first_number, second_number)
+                    symbol = "**"
+
+                print(f"Result: {first_number:g} {symbol} {second_number:g} = {result:g}")
+
+            except ValueError:
+                print("Error: Please enter valid numbers.")
+
+        else:
+            print("Error: Invalid choice. Please select an option from 1 to 7.")
 # =============================================================================
 

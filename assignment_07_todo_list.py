@@ -77,5 +77,97 @@
 #
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
+
+def add_task(tasks):
+    task = input("Enter task: ")
+
+    if task.strip() == "":
+        print("Error: Task description cannot be empty.")
+    else:
+        tasks.append(task)
+        print(f'Task added: "{task}"')
+
+
+# -----------------------------------------------------------------------------
+# FEATURE 2 — View All Tasks
+# -----------------------------------------------------------------------------
+
+def view_tasks(tasks):
+    if len(tasks) == 0:
+        print("Your task list is empty.")
+    else:
+        print("\nYour Tasks:")
+
+        for index in range(len(tasks)):
+            print(f"{index + 1}. {tasks[index]}")
+
+
+# -----------------------------------------------------------------------------
+# FEATURE 3 — Delete a Task
+# -----------------------------------------------------------------------------
+
+def delete_task(tasks):
+    if len(tasks) == 0:
+        print("There are no tasks to delete.")
+        return
+
+    view_tasks(tasks)
+
+    try:
+        task_number = int(input("Enter task number to delete: "))
+
+        if task_number < 1 or task_number > len(tasks):
+            print("Error: Invalid task number.")
+        else:
+            deleted_task = tasks.pop(task_number - 1)
+            print(f'Task "{deleted_task}" has been removed.')
+
+    except ValueError:
+        print("Error: Please enter a valid number.")
+
+
+# -----------------------------------------------------------------------------
+# FEATURE 4 — Display the Menu
+# -----------------------------------------------------------------------------
+
+def display_menu():
+    print("\n============================")
+    print("       TO-DO LIST MENU")
+    print("============================")
+    print("1. Add task")
+    print("2. View tasks")
+    print("3. Delete task")
+    print("4. Quit")
+
+
+# =============================================================================
+# MAIN PROGRAM
+# =============================================================================
+
+if __name__ == "__main__":
+
+    tasks = []
+
+    while True:
+
+        display_menu()
+
+        choice = input("Enter your choice (1-4): ")
+
+        if choice == "1":
+            add_task(tasks)
+
+        elif choice == "2":
+            view_tasks(tasks)
+
+        elif choice == "3":
+            delete_task(tasks)
+
+        elif choice == "4":
+            print("Goodbye!")
+            break
+
+        else:
+            print("Error: Invalid choice. Please select an option from 1 to 4.")
 # =============================================================================
 

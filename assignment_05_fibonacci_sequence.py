@@ -47,5 +47,81 @@
 #
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
+
+
+# -----------------------------------------------------------------------------
+# PART A — Print the First N Terms
+# -----------------------------------------------------------------------------
+
+def generate_fibonacci(n):
+    sequence = []
+
+    first = 0
+    second = 1
+
+    for i in range(n):
+        sequence.append(first)
+
+        next_number = first + second
+        first = second
+        second = next_number
+
+    return sequence
+
+
+# -----------------------------------------------------------------------------
+# PART B — Check if a Number Belongs to the Sequence
+# -----------------------------------------------------------------------------
+
+def is_fibonacci(number):
+    first = 0
+    second = 1
+
+    while first <= number:
+        if first == number:
+            return True
+
+        next_number = first + second
+        first = second
+        second = next_number
+
+    return False
+
+
+# =============================================================================
+# MAIN PROGRAM
+# =============================================================================
+
+if __name__ == "__main__":
+
+    # -------------------------------------------------------------------------
+    # PART A
+    # -------------------------------------------------------------------------
+
+    n = int(input("How many terms? "))
+
+    if n <= 0:
+        print("Error: Number of terms must be a positive integer.")
+    else:
+        sequence = generate_fibonacci(n)
+
+        print("Fibonacci sequence:", end=" ")
+
+        for number in sequence:
+            print(number, end=" ")
+
+        print()
+
+
+    # -------------------------------------------------------------------------
+    # PART B
+    # -------------------------------------------------------------------------
+
+    number = int(input("\nEnter a number to check: "))
+
+    if is_fibonacci(number):
+        print(f"{number} is a Fibonacci number.")
+    else:
+        print(f"{number} is NOT a Fibonacci number.")
 # =============================================================================
 
